@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <img src="../static/images/featured_image.png" class="featured_image" />
+    <div class="featured_content">
+        <p class="featured_title">Good Cookies<br>Endless Variety
+            <a>
+                <div class="button">View Plans</div>
+            </a>
+        </p>
+    </div>
+
+</div>
+<h1>Home Page</h1>
+<h3>
+    {% if current_user.is_authenticated %}
+    Hi {{current_user.name}}
+    {% endif %}
+</h3>
+
+
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if current_user.is_authenticated %}
+
+<section>
+
+    <h1>{{current_user.name}}'s Profile</h1>
+
+    <h3>
+        Email: {{current_user.email}}
+    </h3>
+
+    {% if not current_user.confirmed_email %}
+    <h4>We sent you a confirmation email. Use this to verify your email. Be sure to check your spam folder if you can't
+        find it.</h4>
+    <p class="errorText">If you do not verify your email you could lose access to your account.</p>
+    {% endif %}
+
+    <a href="/edit-profile" class="button">
+        <div>Edit Profile</div>
+    </a>
+    <form method="POST" action="/delete-profile" onsubmit="return confirm_delete()">
+        <input type="submit" class="button danger" value="Delete Profile">
+    </form>
+
+</section>
+
+{% endif %}
+
+{% endblock content %}
