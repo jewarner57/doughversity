@@ -6,11 +6,13 @@ from __init__ import app
 from routes.auth import auth
 from routes.main import main
 from routes.profile import profile
+from routes.cart import cart
 
 # register app routes
 app.register_blueprint(auth)
 app.register_blueprint(main)
 app.register_blueprint(profile)
+app.register_blueprint(cart)
 
 ############################################################
 # ERROR ROUTES

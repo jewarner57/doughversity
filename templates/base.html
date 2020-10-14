@@ -23,7 +23,7 @@
             {% else %}
             <a href="/login">Login</a>
             {% endif %}
-            <a href="/cart">Cart ({{0}})</a>
+            <a href="/cart">Cart ({{session["cart_items"]|length}})</a>
         </div>
     </nav>
 
