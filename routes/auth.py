@@ -96,6 +96,8 @@ def login():
 
         userObj = User(user)
 
+        logout_user()
+
         login_user(userObj, remember=remember)
 
         return redirect(next or url_for('main.home'))

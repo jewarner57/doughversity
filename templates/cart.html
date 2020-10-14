@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main>
+    <h1>My Cart</h1>
+    <div class="plan_container">
+        {% for item in items %}
+
+        <p>{{item}}</p>
+
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock content %}
