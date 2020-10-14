@@ -8,7 +8,9 @@
         <div class="cart_item">
             <div class="cart_item_title">
                 <p>Item {{items.index(item)+1}} of {{items|length}}</p>
-                <input type="Submit" value="X" class="button" />
+                <a href="/removecartitem/{{item['id']}}">
+                    <div class="button">X</div>
+                </a>
             </div>
 
             <div class=" cart_item_body">
@@ -23,9 +25,14 @@
         <div class="cart_item">
 
             <div class="cart_total">
-                <h3>Subtotal: {{subtotal}}</h3>
+                <h3>Subtotal: ${{subtotal}}</h3>
             </div>
 
+        </div>
+        <div class="cart_checkout">
+            <a href="/checkout">
+                <div class="button safe cart_checkout_button">Checkout</div>
+            </a>
         </div>
     </div>
 </section>

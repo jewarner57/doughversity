@@ -39,7 +39,7 @@ def addToCart(itemid, amount):
 def show_cart():
     """Shows the cart page"""
 
-    subtotal = 0.0
+    subtotal = 0
     for item in session["cart_items"]:
         subtotal += float(item["price"])
 
@@ -59,5 +59,16 @@ def remove_cart_item(itemid):
 
     for item in cart:
         if item["id"] == itemid:
+            cart.remove(item)
 
+    session["cart_items"] = cart
+
+    return redirect(url_for("cart.show_cart"))
+
+
+@cart.route('/checkout')
+def checkout():
+    """Clear the cart and checkout the user"""
+
+    session["cart_items"] = []
     return redirect(url_for("cart.show_cart"))
