@@ -1,15 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<main>
+<section class="cart_section">
     <h1>My Cart</h1>
-    <div class="plan_container">
+    <div class="cart_container">
         {% for item in items %}
+        <div class="cart_item">
+            <div class="cart_item_title">
+                <p>Item {{items.index(item)+1}} of {{items|length}}</p>
+                <input type="Submit" value="X" class="button" />
+            </div>
 
-        <p>{{item}}</p>
+            <div class=" cart_item_body">
+                <p>Name: {{item["name"]}}</p>
+                <p>Quantity: {{item["quantity"]}}</p>
+                <p>Price: {{item["price"]}}</p>
+            </div>
 
+
+        </div>
         {% endfor %}
+        <div class="cart_item">
+
+            <div class="cart_total">
+                <h3>Subtotal: {{subtotal}}</h3>
+            </div>
+
+        </div>
     </div>
-</main>
+</section>
 
 {% endblock content %}

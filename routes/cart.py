@@ -27,6 +27,7 @@ def addToCart(itemid, amount):
     # if the item is not in the cart then add it
     cartArray.append({
         "id": itemid,
+        "name": item["name"],
         "price": item["price"],
         "quantity": quantity
     })
@@ -38,8 +39,25 @@ def addToCart(itemid, amount):
 def show_cart():
     """Shows the cart page"""
 
+    subtotal = 0.0
+    for item in session["cart_items"]:
+        subtotal += float(item["price"])
+
     context = {
-        "items": session["cart_items"]
+        "items": session["cart_items"],
+        "subtotal": subtotal
     }
 
     return render_template("cart.html", **context)
+
+
+@cart.route('/removecartitem/<itemid>')
+def remove_cart_item(itemid):
+    """Removes a selected item from the cart"""
+
+    cart = session["cart_items"]
+
+    for item in cart:
+        if item["id"] == itemid:
+
+    return redirect(url_for("cart.show_cart"))
