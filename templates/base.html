@@ -19,6 +19,9 @@
             <a href="/">About</a>
             {% if current_user.is_authenticated %}
             <a href="/myprofile">Profile</a>
+            {% if current_user.role == "bakery" %}
+            <a href="/mybakery">My Bakery</a>
+            {% endif %}
             <a href="/logout">Logout</a>
             {% else %}
             <a href="/login">Login</a>

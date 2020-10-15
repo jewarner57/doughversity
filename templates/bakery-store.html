@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section>
+
+    <h1>{{name}}'s Store Page</h1>
+    <h1>Located at: {{address}}</h1>
+
+    {% if is_owner %}
+    <a href="/edit-bakery-profile" class="button">
+        <div>Edit Bakery Profile</div>
+    </a>
+    {% endif %}
+</section>
+
+{% endblock content %}
