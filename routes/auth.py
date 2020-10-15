@@ -1,7 +1,7 @@
 from flask import request, redirect, render_template, url_for, flash, Blueprint, abort
 from is_safe_url import is_safe_url
 from flask_mail import Message
-from flask_login import login_user, logout_user, login_required
+from flask_login import login_user, logout_user, login_required, current_user
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from itsdangerous import URLSafeTimedSerializer
@@ -32,7 +32,8 @@ def signup():
             "email": email,
             "password": hashed_password,
             "date_created": date_created,
-            "confirmed_email": False
+            "confirmed_email": False,
+            "role": "user"
         }
 
         context = {

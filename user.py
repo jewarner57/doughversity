@@ -4,15 +4,14 @@ class User():
         self.email = user_data["email"]
         self.id = str(user_data["_id"])
         self.confirmed_email = user_data["confirmed_email"]
+        self.role = user_data["role"]
+        self.is_anonymous = False
 
     def is_authenticated(self):
         return True
 
     def is_active(self):
         return True
-
-    def is_anonymous(self):
-        return False
 
     def get_id(self):
         return self.id
