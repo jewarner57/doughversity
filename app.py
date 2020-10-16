@@ -8,6 +8,8 @@ from routes.main import main
 from routes.profile import profile
 from routes.cart import cart
 from routes.bakery import bakery
+from routes.image import image
+from routes.shopItem import shopItem
 
 # register app routes
 app.register_blueprint(auth)
@@ -15,6 +17,8 @@ app.register_blueprint(main)
 app.register_blueprint(profile)
 app.register_blueprint(cart)
 app.register_blueprint(bakery)
+app.register_blueprint(image)
+app.register_blueprint(shopItem)
 
 ############################################################
 # ERROR ROUTES

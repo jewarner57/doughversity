@@ -5,6 +5,10 @@
 
     <h1>{{name}}'s Store Page</h1>
     <h1>Located at: {{address}}</h1>
+    <div class="bakery_image">
+        <img src="/viewimage/{{image}}" />
+    </div>
+    <p>{{description}}</p>
 
     {% if is_owner %}
     <a href="/edit-bakery-profile" class="button">

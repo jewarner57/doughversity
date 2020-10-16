@@ -57,3 +57,13 @@ app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
 mail.init_app(app)
+
+
+# set allowed upload extensions
+ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
+
+# set image upload folder
+UPLOAD_FOLDER = './public/imageuploads'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+# set max image upload size
+app.config['MAX_CONTENT_LENGTH'] = 8 * 1024 * 1024

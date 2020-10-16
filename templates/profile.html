@@ -23,6 +23,12 @@
     <form method="POST" action="/delete-profile" onsubmit="return confirm_delete()">
         <input type="submit" class="button danger" value="Delete Profile">
     </form>
+    {% if current_user.role == "user" %}
+    <p>Do you own a bakery? Register your bakery and</p>
+    <a href="/register-bakery" class="button">
+        <div>Start Selling Now</div>
+    </a>
+    {% endif %}
 
 </section>
 

@@ -19,6 +19,10 @@ section {
     text-align: center;
 }
 
+img {
+    max-width: 100%;
+}
+
 .home_content {
     max-width: none;
     width: 100%;
@@ -232,4 +236,10 @@ li {
     padding: 20px;
     margin: 10px 0;
     width: 150px;
+}
+
+/* bakery store page */
+.bakery_image {
+    width: 100%;
+    height: auto;
 }

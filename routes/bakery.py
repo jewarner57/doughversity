@@ -2,15 +2,15 @@ from flask import Blueprint, abort, render_template, request, flash, redirect, u
 from bson.objectid import ObjectId
 from flask_login import current_user, login_required
 from __init__ import mongo
+from routes.image import uploadImage
 
 bakery = Blueprint('bakery', __name__, template_folder="templates")
 
 
-# role required decorator
-# storing this in bakery for now because it will only be used for bakery routes atm
-
-
 def role_required(role):
+    # role required decorator
+    # storing this here for now because it will only be used
+    # for bakery routes and shop items
     """Checks if the current user has the required role"""
     def wrapper(function):
 
@@ -27,6 +27,7 @@ def role_required(role):
         inner.__name__ = function.__name__
         return inner
     return wrapper
+
 
 ############################################################
 # BAKERY ROUTES
@@ -85,6 +86,8 @@ def view_bakery(bakeryId):
     context = {
         "name": bakery["name"],
         "address": bakery["address"],
+        "image": bakery["image"],
+        "description": bakery["description"],
         "is_owner": current_user.get_id() == bakery["ownerId"]
     }
 
@@ -120,8 +123,10 @@ def edit_bakery():
         email = request.form.get("email")
         phonenumber = request.form.get("phonenumber")
         address = request.form.get("address")
-        image = request.form.get("image")
-        description = request.form.get("description")
+        description = request.form.get("desc")
+
+        # upload the image and save the path if successful
+        image = uploadImage(request, bakery["image"])
 
         mongo.db.bakeries.update_one({
             "_id": bakery["_id"]
