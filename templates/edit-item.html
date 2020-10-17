@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section>
+    <form method='POST' class="pure-form" enctype="multipart/form-data">
+        <h1>Edit Product</h1>
+        <fieldset>
+            <div class="form_container">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="{{name}}" required="true">
+
+                <label for="image">Image</label>
+                <div>
+                    <input type="file" id="image" name="image" accept="image/*" multiple="false">
+                </div>
+
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" value="{{price}}" required="true" step="any">
+
+                <label for="desc">Description:</label>
+                <input type="text" id="desc" name="desc" value="{{description}}" placeholder="Product Description"
+                    required="false">
+
+                <input type="submit" class="submit" value="Save Changes">
+
+                {% for message in get_flashed_messages() %}
+                <p class="errorText">{{message}}</p>
+                {% endfor %}
+            </div>
+        </fieldset>
+    </form>
+</section>
+
+{% endblock content %}

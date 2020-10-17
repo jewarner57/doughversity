@@ -4,33 +4,28 @@
 <section class="home_content">
     <img src="../static/images/featured_image.png" class="featured_image" />
     <div class="featured_content">
-        <p class="featured_title">Good Cookies<br>Endless Variety
-        <div class="button"><a href="/plans" class="button">View Plans</a></div>
+        <p class="featured_title pure-img">Good Cookies<br>Endless Variety
+        <div class="button featured_button"><a href="/plans" class="">View Plans</a></div>
         </p>
     </div>
 </section>
 <section class="home_content">
-    <div class="home_inner">
-        <h1>About</h1>
-        <ul>
-            <li>Doughversity was created to help bakers sell their cookies and connect users with cookies from locally
-                owned
-                bakeries
-                around the country.</li>
-
-            <li>Our web service will initially provide monthly subscription boxes containing unique, bakery made cookies
-                from up
-                to a
-                dozen different bakeries.</li>
-
-            <li>We will then expand our service to offer an online storefront where small bakers can sell their goods
-                online
-                to
-                a wide
-                audience free of charge.
-            </li>
-        </ul>
+    <p class="blackTitle">Featured Products</p>
+    <div class="cardContainer">
+        {% for item in shop_items %}
+        <div class="productCard">
+            <a href="/item/{{item['_id']}}">
+                <div class="cardImage" style="background-image: url(/viewimage/{{item['image']}})">
+                </div>
+            </a>
+            <div class="cardText">
+                <h3>{{item["name"]}}</h3>
+                <p>{{item["description"]}}</p>
+            </div>
+        </div>
+        {% endfor %}
     </div>
+
 </section>
 
 

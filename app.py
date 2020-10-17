@@ -35,7 +35,7 @@ def page_not_found(e):
 def not_authorized(e):
     """send the user to the login screen when they try to access a locked page"""
     flash("Confirm Your Identity to Proceed")
-    return redirect(login_url("/login", next_url=url_for(request.endpoint)))
+    return redirect(login_url("/login", next_url=url_for(request.root_url)))
 
 
 if __name__ == '__main__':

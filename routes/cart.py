@@ -10,6 +10,7 @@ cart = Blueprint('cart', __name__, template_folder="templates")
 def addToCart(itemid, amount):
     """Add a store item to the shopping cart"""
     item = mongo.db.shop_items.find_one_or_404({"_id": ObjectId(itemid)})
+    print(item)
     quantity = amount or 1
 
     if "cart_items" not in session:
@@ -18,9 +19,9 @@ def addToCart(itemid, amount):
     cartArray = session["cart_items"]
 
     # if the item is already in the cart increase the quantity
-    for item in cartArray:
-        if item["id"] == itemid:
-            item["quantity"] += quantity
+    for current_item in cartArray:
+        if current_item["id"] == itemid:
+            current_item["quantity"] += quantity
             session["cart_items"] = cartArray
             return redirect(url_for("cart.show_cart"))
 
@@ -39,10 +40,12 @@ def addToCart(itemid, amount):
 def show_cart():
     """Shows the cart page"""
 
+    if session.get("cart_items") is None:
+        session["cart_items"] = []
+
     subtotal = 0
     for item in session["cart_items"]:
-        subtotal += float(item["price"])
-
+        subtotal += float(item["price"]) * float(item["quantity"])
     context = {
         "items": session["cart_items"],
         "subtotal": subtotal

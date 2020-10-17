@@ -52,7 +52,7 @@ def register_bakery():
             "email": email,
             "phonenumber": phonenumber,
             "address": address,
-            "image": "",
+            "image": "default.jpg",
             "description": ""
         }
 
@@ -83,12 +83,15 @@ def register_bakery():
 def view_bakery(bakeryId):
     bakery = mongo.db.bakeries.find_one_or_404({"_id": ObjectId(bakeryId)})
 
+    bakeryItems = mongo.db.shop_items.find({"bakeryId": bakery["_id"]})
+
     context = {
         "name": bakery["name"],
         "address": bakery["address"],
         "image": bakery["image"],
         "description": bakery["description"],
-        "is_owner": current_user.get_id() == bakery["ownerId"]
+        "is_owner": current_user.get_id() == bakery["ownerId"],
+        "shopItems": bakeryItems
     }
 
     return render_template("bakery-store.html", **context)

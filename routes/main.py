@@ -11,13 +11,19 @@ main = Blueprint('main', __name__, template_folder="templates")
 @main.route('/')
 def home():
     """Display the home page."""
-    # find all unanswered posts
-    post_data = mongo.db.posts.find()
+    shop_items = mongo.db.shop_items.find({"repeating": False})
 
     context = {
-        'posts': post_data
+        "shop_items": shop_items
     }
+
     return render_template('home.html', **context)
+
+
+@main.route('/about')
+def about():
+    """Display the about page"""
+    return render_template("about.html")
 
 
 @main.route('/plans')

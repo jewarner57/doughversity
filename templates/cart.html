@@ -4,12 +4,13 @@
 <section class="cart_section">
     <h1>My Cart</h1>
     <div class="cart_container">
+
         {% for item in items %}
         <div class="cart_item">
             <div class="cart_item_title">
                 <p>Item {{items.index(item)+1}} of {{items|length}}</p>
                 <a href="/removecartitem/{{item['id']}}">
-                    <div class="button">X</div>
+                    <div class="button danger">X</div>
                 </a>
             </div>
 
@@ -31,7 +32,7 @@
         </div>
         <div class="cart_checkout">
             <a href="/checkout">
-                <div class="button safe cart_checkout_button">Checkout</div>
+                <div class="button cart_checkout_button">Checkout</div>
             </a>
         </div>
     </div>

@@ -11,10 +11,32 @@
     <p>{{description}}</p>
 
     {% if is_owner %}
-    <a href="/edit-bakery-profile" class="button">
-        <div>Edit Bakery Profile</div>
-    </a>
+    <div>
+        <a href="/edit-bakery-profile">
+            <div class="button">Edit Bakery Profile</div>
+        </a>
+        <a href="/create-item">
+            <div class="button">Add a Product</div>
+        </a>
+    </div>
     {% endif %}
+
+</section>
+<section>
+    <div class="cardContainer">
+        {% for item in shopItems %}
+        <div class="productCard">
+            <a href="/item/{{item['_id']}}">
+                <div class="cardImage" style="background-image: url(/viewimage/{{item['image']}} )">
+                </div>
+            </a>
+            <div class="cardText">
+                <h4>{{item["name"]}}</h4>
+                <p>{{item["description"]}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </section>
 
 {% endblock content %}

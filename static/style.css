@@ -27,7 +27,7 @@ img {
     max-width: none;
     width: 100%;
     padding: 0;
-    background-color:#9195a0;
+    background-color:#b2dfdb;
     position: relative;
     color: white;
 }
@@ -54,7 +54,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #676b75;
+    background-color:#009688;
     position: relative;
     top: 0;
     left: 0
@@ -71,6 +71,10 @@ a {
     text-decoration: none;
 }
 
+.button a {
+    color: white
+}
+
 .siteTitle {
     padding: 0 25px;
 }
@@ -83,13 +87,13 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #676b75;
+    background-color: #009688;
     color: white;
 }
 
 a.nav, input.nav, form input.submit, .button {
     border: none;
-    background-color: #828794;
+    background-color: #ff1744;
     border-radius: 3px;
     color: white;
     padding: 10px 15px;
@@ -103,6 +107,14 @@ a.nav, input.nav, form input.submit, .button {
     flex-direction: column;
     justify-content: center;
     min-width: 350px;
+    text-align: left;
+}
+
+.pure-form {
+    padding: 10px;
+    margin: 30px;
+    border: 2px solid rgb(31, 30, 30);
+    border-radius: 10px;
 }
 
 input {
@@ -117,12 +129,12 @@ input::-webkit-inner-spin-button {
 }
 
 .errorText {
-    color: #d9534f;
+    color: #f44336;
     text-align: center;
 }
 
 .danger {
-    background-color: #d9534f;
+    background-color: #000000;
     text-align: center;
 }
 
@@ -145,6 +157,15 @@ input::-webkit-inner-spin-button {
     transform: translate(-50%, -50%);
     text-align: center;
     position: absolute;
+}
+
+.featured_button {
+    font-size: 20px;
+    transition: box-shadow 0.5s;
+}
+
+.featured_button:hover {
+    box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.5);
 }
 
 .featured_title {
@@ -242,4 +263,36 @@ li {
 .bakery_image {
     width: 100%;
     height: auto;
+}
+
+/* product card */
+.productCard {
+    border-radius: 15px;
+    width: 250px;
+    background-color: white;
+    margin: 0 20px 40px 20px;
+}
+
+.cardImage {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.cardText {
+    color: black;
+    padding: 0 20px 10px 20px;
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.blackTitle {
+    color: black;
+    font-size: 30px;
 }
