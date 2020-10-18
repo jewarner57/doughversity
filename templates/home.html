@@ -4,13 +4,15 @@
 <section class="home_content">
     <img src="../static/images/featured_image.png" class="featured_image" />
     <div class="featured_content">
-        <p class="featured_title pure-img">Good Cookies<br>Endless Variety
-        <div class="button featured_button"><a href="/plans" class="">View Plans</a></div>
-        </p>
+        <p class="featured_title pure-img">Good Cookies<br>Endless Variety</p>
+        <a href="/plans">
+            <div class="button featured_button">View Plans</div>
+        </a>
+
     </div>
 </section>
 <section class="home_content">
-    <p class="blackTitle">Featured Products</p>
+    <p class="nonBoldTitle">Featured Products</p>
     <div class="cardContainer">
         {% for item in shop_items %}
         <div class="productCard">

@@ -27,14 +27,16 @@
         {% for item in shopItems %}
         <div class="productCard">
             <a href="/item/{{item['_id']}}">
-                <div class="cardImage" style="background-image: url(/viewimage/{{item['image']}} )">
+                <div class="cardImage border" style="background-image: url(/viewimage/{{item['image']}} )">
                 </div>
             </a>
-            <div class="cardText">
+            <div class="cardText border">
                 <h4>{{item["name"]}}</h4>
                 <p>{{item["description"]}}</p>
             </div>
+
         </div>
+
         {% endfor %}
     </div>
 </section>

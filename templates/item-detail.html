@@ -2,15 +2,18 @@
 {% block content %}
 
 <section>
-    <h1>{{name}}</h1>
-    <div class="bakery_image">
-        <img src="/viewimage/{{image}}" />
+    <div class="item-wrapper">
+        <div class="item-image" style="background-image: url('/viewimage/{{image}}');">
+        </div>
+        <div class="item-details">
+            <h1>{{name}}</h1>
+            <p>{{description}}</p>
+            <h3>${{price}}</h3>
+            <a href="/addToCart/{{id}}">
+                <div class="button safe">Add To Cart</div>
+            </a>
+        </div>
     </div>
-    <p>{{description}}</p>
-    <h3>${{price}}</h3>
-    <a href="/addToCart/{{id}}" class="button safe">
-        <div>Add To Cart</div>
-    </a>
     {% if current_user.get_id() == ownerId %}
     <a href="/delete-item/{{id}}" class="danger button">
         <div>Delete Item</div>
