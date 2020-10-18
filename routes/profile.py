@@ -73,7 +73,5 @@ def delete_profile():
     user_id = current_user.id
 
     mongo.db.users.delete_one({"_id": ObjectId(user_id)})
-    mongo.db.posts.delete_many({"authorId": user_id})
-    mongo.db.comments.delete_many({"author": user_id})
 
     return redirect(url_for('auth.logout'))

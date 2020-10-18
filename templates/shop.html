@@ -2,19 +2,9 @@
 {% block content %}
 
 <section class="home_content">
-    <img src="../static/images/featured_image.png" class="featured_image" />
-    <div class="featured_content">
-        <p class="featured_title pure-img">Good Cookies<br>Endless Variety</p>
-        <a href="/shop">
-            <div class="button featured_button">Shop Now</div>
-        </a>
-
-    </div>
-</section>
-<section class="home_content">
     <p class="nonBoldTitle">Featured Products</p>
     <div class="cardContainer">
-        {% for item in shop_items %}
+        {% for item in items %}
         <div class="productCard">
             <a href="/item/{{item['_id']}}">
                 <div class="cardImage" style="background-image: url(/viewimage/{{item['image']}})">

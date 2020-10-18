@@ -33,7 +33,6 @@ login_manager.init_app(app)
 
 @login_manager.user_loader
 def load_user(user_id):
-    print(user_id)
     """Loads the current user from the database by id and returns a user object"""
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
 

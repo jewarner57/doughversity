@@ -53,7 +53,15 @@ def uploadImage(request, prevImage):
             # save the image
             file.save(os.path.join(UPLOAD_FOLDER, filename))
 
+            # delete the previous, but now unused image
+            delete_file(prevImage)
+
             return filename
+
+
+def delete_file(filename):
+    if filename != "default.jpg":
+        os.remove(os.path.join(UPLOAD_FOLDER, filename))
 
 
 def get_unique_filename(filename):

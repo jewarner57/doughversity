@@ -7,6 +7,7 @@
         </div>
         <div class="item-details">
             <h1>{{name}}</h1>
+            <p>Baked By: <a href="/bakery/{{bakery_id}}">{{bakery_name}}</a></p>
             <p>{{description}}</p>
             <h3>${{price}}</h3>
             <a href="/addToCart/{{id}}">
@@ -15,8 +16,8 @@
         </div>
     </div>
     {% if current_user.get_id() == ownerId %}
-    <a href="/delete-item/{{id}}" class="danger button">
-        <div>Delete Item</div>
+    <a href="/delete-item/{{id}}" onclick="return confirm_delete()" class="danger button">
+        <div>Delete Item </div>
     </a>
     <a href="/edit-item/{{id}}" class="button">
         <div>Edit Item</div>

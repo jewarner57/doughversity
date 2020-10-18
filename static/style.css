@@ -93,7 +93,7 @@ footer {
 
 a.nav, input.nav, form input.submit, .button {
     border: none;
-    background-color: #ff1744;
+    background-color: #795548;
     border-radius: 3px;
     color: white;
     padding: 10px 15px;
@@ -134,7 +134,7 @@ input::-webkit-inner-spin-button {
 }
 
 .danger {
-    background-color: #000000;
+    background-color: #ff1744;
     text-align: center;
 }
 
@@ -162,6 +162,7 @@ input::-webkit-inner-spin-button {
 .featured_button {
     font-size: 20px;
     transition: box-shadow 0.5s;
+    background-color: #ff1744;;
 }
 
 .featured_button:hover {
@@ -170,7 +171,7 @@ input::-webkit-inner-spin-button {
 
 .featured_title {
     font-size: 40px;
-    color:white;
+    color: white;
     line-height: 55px;
 }
 
@@ -308,7 +309,7 @@ li {
 
 .cardText {
     color: black;
-    padding: 0 20px 10px 20px;
+    padding: 0 20px 10px 20px
 }
 
 .cardContainer {

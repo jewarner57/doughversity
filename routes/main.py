@@ -37,3 +37,15 @@ def plans():
     }
 
     return render_template('plans.html', **context)
+
+
+@main.route('/shop')
+def shop():
+    """Display The Shop Page"""
+    items = mongo.db.shop_items.find({"repeating": False})
+
+    context = {
+        'items': items
+    }
+
+    return render_template('shop.html', **context)

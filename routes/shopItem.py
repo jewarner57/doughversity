@@ -81,6 +81,8 @@ def view_item(itemid):
     context = {
         "id": item["_id"],
         "ownerId": bakery["ownerId"],
+        "bakery_name": bakery["name"],
+        "bakery_id": bakery["_id"],
         "name": item["name"],
         "image": item["image"],
         "price": item["price"],
@@ -123,7 +125,7 @@ def edit_item(id):
         price = request.form.get("price")
         desc = request.form.get("desc")
 
-        image = uploadImage(request, "default.jpg")
+        image = uploadImage(request, item["image"])
 
         mongo.db.shop_items.update_one({
             "_id": item["_id"]
