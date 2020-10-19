@@ -1,5 +1,6 @@
 from flask import render_template, Blueprint
 from __init__ import mongo
+from random import choice
 
 ############################################################
 # MAIN ROUTES
@@ -11,10 +12,10 @@ main = Blueprint('main', __name__, template_folder="templates")
 @main.route('/')
 def home():
     """Display the home page."""
-    shop_items = mongo.db.shop_items.find({"repeating": False})
+    items = mongo.db.shop_items.find({"repeating": False})
 
     context = {
-        "shop_items": shop_items
+        'shop_items': items[0:4]
     }
 
     return render_template('home.html', **context)

@@ -64,6 +64,7 @@ def register_bakery():
 
         if(isUniqueEmail and isUniquePhone and isUniqueOwner):
             mongo.db.bakeries.insert_one(newBakery)
+            flash("Bakery Regsistration Application Sent Successfully.")
         else:
             if not isUniqueOwner:
                 flash("You have already submitted this form.")
@@ -71,8 +72,6 @@ def register_bakery():
                 flash("Your bakery email has already been registered.")
             elif not isUniquePhone:
                 flash("Your bakery phone number has already been registered")
-            else:
-                flash("Bakery Regsistration Application Sent Successfully.")
 
         return render_template("register-bakery.html")
 
