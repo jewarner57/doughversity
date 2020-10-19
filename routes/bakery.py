@@ -67,12 +67,13 @@ def register_bakery():
         else:
             if not isUniqueOwner:
                 flash("You have already submitted this form.")
-            if not isUniqueEmail:
+            elif not isUniqueEmail:
                 flash("Your bakery email has already been registered.")
-            if not isUniquePhone:
+            elif not isUniquePhone:
                 flash("Your bakery phone number has already been registered")
+            else:
+                flash("Bakery Regsistration Application Sent Successfully.")
 
-        flash("Bakery Regsistrationn Application Sent Successfully.")
         return render_template("register-bakery.html")
 
     else:
@@ -91,7 +92,7 @@ def view_bakery(bakeryId):
         "image": bakery["image"],
         "description": bakery["description"],
         "is_owner": current_user.get_id() == bakery["ownerId"],
-        "shopItems": bakeryItems
+        "shop_items": bakeryItems
     }
 
     return render_template("bakery-store.html", **context)

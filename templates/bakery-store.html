@@ -3,12 +3,17 @@
 
 <section>
 
-    <h1>{{name}}'s Store Page</h1>
-    <h1>Located at: {{address}}</h1>
-    <div class="bakery_image">
+    <h1>{{name}}</h1>
+    <p class="nonBoldTitle">Located at: {{address}}</p>
+    <div class="bakery_info">
         <img src="/viewimage/{{image}}" />
+        <div>
+            <p>About Us / Tagline</p>
+            <p>{{description}}</p>
+        </div>
     </div>
-    <p>{{description}}</p>
+
+
 
     {% if is_owner %}
     <div>
@@ -22,23 +27,9 @@
     {% endif %}
 
 </section>
-<section>
-    <div class="cardContainer">
-        {% for item in shopItems %}
-        <div class="productCard">
-            <a href="/item/{{item['_id']}}">
-                <div class="cardImage border" style="background-image: url(/viewimage/{{item['image']}} )">
-                </div>
-            </a>
-            <div class="cardText border">
-                <h4>{{item["name"]}}</h4>
-                <p>{{item["description"]}}</p>
-            </div>
-
-        </div>
-
-        {% endfor %}
-    </div>
+<section class="full_width_content">
+    <p class="nonBoldTitle">Shop From {{name}}</p>
+    {% include "itemCards.html" %}
 </section>
 
 {% endblock content %}

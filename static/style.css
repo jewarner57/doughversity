@@ -23,13 +23,15 @@ img {
     max-width: 100%;
 }
 
-.home_content {
+.full_width_content {
     max-width: none;
     width: 100%;
     padding: 0;
-    background-color:#b2dfdb;
-    position: relative;
     color: white;
+}
+
+.colorContent {
+    background-color:#b2dfdb;
 }
 
 .home_inner {
@@ -108,6 +110,7 @@ a.nav, input.nav, form input.submit, .button {
     justify-content: center;
     min-width: 350px;
     text-align: left;
+    word-wrap: break-word;
 }
 
 .pure-form {
@@ -216,13 +219,15 @@ li {
     flex-direction: column;
     margin: 10px;
     width: 100%;
-}
-
-.cart_section {
-    max-width: 80%;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    
 }
 
 .cart_item_title {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     border: 2px solid black;
     padding-left: 20px;
     text-align: left;
@@ -243,6 +248,8 @@ li {
 
 .cart_total {
     border: 2px solid black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     text-align: right;
     padding-right: 20px;
 }
@@ -261,9 +268,17 @@ li {
 }
 
 /* bakery store page */
-.bakery_image {
+.bakery_info {
     width: 100%;
     height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bakery_info img {
+    width: 50%;
+    margin: 20px;
 }
 
 /*  item detail page */
@@ -291,10 +306,20 @@ li {
 
 /* product card */
 .productCard {
-    border-radius: 15px;
+    border-radius: 12px;
     width: 250px;
     background-color: white;
     margin: 0 20px 40px 20px;
+    height: 90%;
+    
+}
+
+.noBorderProductCard {
+    padding-bottom: 5px;
+}
+
+.borderProductCard {
+    border: 2px solid black;
 }
 
 .cardImage {
@@ -302,22 +327,31 @@ li {
     height: 200px;
     background-size: cover;
     background-position: center;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
-
 
 .cardText {
     color: black;
-    padding: 0 20px 10px 20px
+    padding: 0 20px 0px 20px
 }
 
 .cardContainer {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
 }
+
+
 
 .nonBoldTitle {
     color: black;
     font-size: 30px;
+    margin: 10px;
+}
+
+.productListTitle {
+    margin: 20px 0 40px 0;
 }

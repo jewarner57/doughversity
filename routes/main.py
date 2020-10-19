@@ -45,7 +45,7 @@ def shop():
     items = mongo.db.shop_items.find({"repeating": False})
 
     context = {
-        'items': items
+        'shop_items': items
     }
 
     return render_template('shop.html', **context)

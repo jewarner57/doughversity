@@ -1,0 +1,17 @@
+<div class="cardContainer">
+    {% for item in shop_items %}
+    <a href="/item/{{item['_id']}}">
+        <div class="productCard noBorderProductCard">
+            <div class="cardImage border" style="background-image: url(/viewimage/{{item['image']}} )">
+            </div>
+
+            <div class="cardText border">
+                <h4>{{item["name"]}}</h4>
+                <p>{{item["description"][0:70]}}{% if (item["description"] | length) > 70 %}...{% endif %}</p>
+                <p>${{item["price"]}}</p>
+            </div>
+
+        </div>
+    </a>
+    {% endfor %}
+</div>
