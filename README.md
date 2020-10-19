@@ -10,3 +10,7 @@
   * Monthly subscription boxes containing unique, bakery made cookies from up to a dozen different bakeries. 
 
 * ### [Read our Project Proposal](https://medium.com/@jewarner57/doughversity-could-improve-the-modern-cookie-cbdb1e25e881) and [Sign Up Now!](http://the-monthly-cookie.herokuapp.com/) 
+
+## How do I run this?
+  * ### [Check out our demo](https://doughversity.herokuapp.com/)
+  * Alternatively, clone the repo, navigate to the root directory and pip install -m requirements.txt. Then run python ./app.py
