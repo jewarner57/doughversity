@@ -156,7 +156,7 @@ def forgot_password():
             resetLink = url_for(
                 "auth.reset_password", token=confirmation_token, _external=True)
 
-            msg = Message(subject="Reset Your Password for MakeOverflow.",
+            msg = Message(subject="Reset Your Password for Doughversity.",
                           html=f"""<a href='{resetLink}'>
                                     Click Here To Reset Your Password
                                 </a>""",
@@ -233,7 +233,7 @@ def sendConfirmationEmail(email):
     confirm_email_link = url_for(
         "auth.confirm_email", token=confirmation_token, _external=True)
 
-    msg = Message(subject="Confirm your email for MakeOverflow!",
+    msg = Message(subject="Confirm your email for Doughversity!",
                   html=f"""<a href='{confirm_email_link}'>
                                     Click Here To Authenticate Your Email!
                                 </a>""",
