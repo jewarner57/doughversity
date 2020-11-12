@@ -19,10 +19,15 @@ app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
 # configure app password salt
 app.config["SECURITY_PASSWORD_SALT"] = os.getenv('SECURITY_PASSWORD_SALT')
-# configure mongodb uri
-dbhost = os.environ.get(
-    'MONGODB_URI', 'mongodb://localhost:27017/doughversity') + "?retryWrites=false"
-app.config["MONGO_URI"] = dbhost
+
+# database for local testing
+# dbhost = os.environ.get(
+#     'MONGODB_URI', 'mongodb://localhost:27017/doughversity') + "?retryWrites=false"
+
+mongo_uri = os.getenv('MONGO_DB_URI')
+
+app.config["MONGO_URI"] = mongo_uri
+
 # create mongo instance
 mongo = PyMongo(app)
 
@@ -31,7 +36,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 
-@login_manager.user_loader
+@ login_manager.user_loader
 def load_user(user_id):
     """Loads the current user from the database by id and returns a user object"""
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
