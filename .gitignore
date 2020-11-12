@@ -3,6 +3,6 @@ venv/
 .DS_Store
 .env
 __pycache__/
-# public/
-# !public/imageuploads/default.jpg
+public/
+!public/imageuploads/default.jpg
 
